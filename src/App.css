@@ -1,0 +1,42 @@
+.light-theme{
+    --main-heading: #5f99be;
+    --para: #333;
+    --btn-bg-colr: #111b20;
+    --btn-text-clr: #fff;
+    --bg-clr: #fff;
+    --theme-background: #fff;
+}
+
+.dark-theme{
+    --main-heading: #5f99be;
+    --para: #fff;
+    --btn-bg-colr: #5f99be;
+    --btn-text-clr: #fff;
+    --bg-clr: #111b20;
+    --theme-background: #111b20;
+}
+
+h1{
+    color: var(--main-heading)
+}
+p{
+    color: var(--para)
+}
+.App{
+    background-color: var(--bg-clr)
+}
+.icon{
+    color: var(--theme-background);
+    font-size: 20px;
+    margin-left: 25px;
+}
+
+.button1{
+    color: var(--btn-text-clr);
+    background-color: var(--btn-bg-colr);
+    margin-left: 13px;
+}
+
+.heading{
+    color: var(--main-heading)
+}
