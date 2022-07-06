@@ -2,7 +2,7 @@ async function main() {
 
   const [deployer] = await ethers.getSigners();
 
-  const InstaDapp = await ethers.getContractFactory("Instadapp");
+  const InstaDapp = await ethers.getContractFactory("InstaDapp");
   const instaDapp = await InstaDapp.deploy();
   console.log("Contract address: " + instaDapp.address);
 }

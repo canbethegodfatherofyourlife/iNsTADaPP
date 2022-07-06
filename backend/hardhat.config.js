@@ -22,7 +22,7 @@ module.exports = {
     }
   },
   paths: {
-    artifacts: './src/artifacts',
+    artifacts: '../src/artifacts',
   },
   etherscan:{
     apiKey: "CJJTBF2QU4T4S8GIHRND9TF8TJQ7TAEKFQ"

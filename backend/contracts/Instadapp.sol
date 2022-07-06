@@ -15,7 +15,6 @@ contract InstaDapp {
     mapping(uint256 => Image) public images;
 
     uint256 public count = 0;
-
     // Add images 
     function addImages(string memory _cid,string memory _desc) public{
         require(bytes(_cid).length > 0,'Not valid hash');
