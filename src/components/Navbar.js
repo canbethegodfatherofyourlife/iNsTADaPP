@@ -48,7 +48,7 @@ const Navbar1 = () => {
       <Navbar.Collapse className="justify-content-end">
       <Navbar.Text>
         Signed in as: <span className="heading">{user.get('ethAddress').substring(0,5)+"..."+user.get('ethAddress').substring(user.get('ethAddress').length-5,user.get('ethAddress').length)}</span>
-      </Navbar.Text>
+      </Navbar.Text>cl
       <Button variant="info" className="button1" onClick={logOut} disabled={isAuthenticating}>Logout</Button>
     </Navbar.Collapse>
     )}

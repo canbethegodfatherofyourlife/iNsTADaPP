@@ -40,3 +40,8 @@ p{
 .heading{
     color: var(--main-heading)
 }
+
+button{
+    margin-top:10px !important;
+    margin-left:20px !important;
+}
