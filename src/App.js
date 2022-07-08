@@ -10,16 +10,6 @@ import { create, CID } from "ipfs-http-client";
 import abi from "./artifacts/contracts/Instadapp.sol/InstaDapp.json";
 const contractABI = abi.abi;
 const contractAddress = "0x9207329178c592a0804af4c28a75e0CAd50BB279";
-let ipfs = undefined;
-try {
-    ipfs = create({
-      url: "https://ipfs.infura.io:5001/api/v0",
-
-    });
-} catch (error) {
-    console.error("IPFS error ", error);
-    ipfs = undefined;
-}
 
 function App() {
   const { ethereum } = window;
@@ -27,9 +17,9 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
-  const [cid, setcid] = useState('')
-  const [desc, setdesc] = useState('')
-
+  const [cid, setcid] = useState("");
+  const [desc, setdesc] = useState("");
+  const [img1, setimg] = useState("");
 
   const { saveFile } = useMoralisFile();
   const { authenticate, isAuthenticated, user, logout, isAuthenticating } =
@@ -39,19 +29,26 @@ function App() {
     if (typeof ethereum !== "undefined" && isAuthenticated) {
       console.log("FILE", f);
       const fileIpfs = await saveFile(f.name, file, { saveIPFS: true });
-      const cid1 = await fileIpfs._hash
-      const desc1 = await fileIpfs._ipfs
-      setcid(cid1)
-      setdesc(desc1)
-    }else{
-      window.alert('Install Metamask and Connect to wallet.')
+      setcid(fileIpfs._hash);
+      setdesc(fileIpfs._ipfs);
+      console.log(cid, desc);
+    } else {
+      window.alert("Install Metamask and Connect to wallet.");
     }
   };
+  useEffect(() => {
+    console.log('hi')
+  }, [desc]);
+  
+  useEffect(() => {
+    console.log('hi')
+  }, [cid]);
 
   const handleFinal = async () => {
     await saveFileIPFS(file);
     handleClose();
-    addImages1();
+    console.log(cid,desc)
+    await addImages1();
   };
 
   const addImages1 = async () => {
@@ -61,8 +58,9 @@ function App() {
     const tx = await social.addImages(cid, desc);
     await tx.wait();
     const counter = await social.count();
-    console.log(cid)
-  }
+    const curr = await social.images(counter)
+    setimg(curr.cid)
+  };
 
   return (
     <div className="App">
@@ -95,9 +93,9 @@ function App() {
           </Button>
         </Modal.Footer>
       </Modal>
-      {!ipfs && (
-          <p>Oh oh, Not connected to IPFS. Checkout out the logs for errors</p>
-      )}
+      {
+        img1 && <img src={`http://ipfs.io/ipfs/${img1}`}/>
+      }
     </div>
   );
 }
