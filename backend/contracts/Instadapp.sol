@@ -9,7 +9,6 @@ contract InstaDapp {
         uint256 id;
         string cid;
         string desc;
-        uint256 tip;
         address author;
     }
     mapping(uint256 => Image) public images;
@@ -20,14 +19,7 @@ contract InstaDapp {
         require(bytes(_cid).length > 0,'Not valid hash');
         require(bytes(_desc).length > 0,'Not valid description');
         count = count+1;
-        images[count] = Image(count,_cid,_desc,0,msg.sender);
+        images[count] = Image(count,_cid,_desc,msg.sender);
     }
 
-    // Tip 
-    // function giveTip(uint256 _id)public payable{
-    //     require(_id>0 && _id<=count,'Not valid id');
-    //     payable(images[_id].author).transfer(msg.value);
-    //     images[_id].tip = images[_id].tip + msg.value;
-  
-    // }
 }
