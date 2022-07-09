@@ -23,7 +23,9 @@ p{
     color: var(--para)
 }
 .App{
-    background-color: var(--bg-clr)
+    background-color: var(--bg-clr);
+    height: 100vh;
+    background-size: cover;
 }
 .icon{
     color: var(--theme-background);
@@ -44,4 +46,27 @@ p{
 button{
     margin-top:10px !important;
     margin-left:20px !important;
+}
+label.filebutton {
+    width:120px;
+    height:40px;
+    overflow:hidden;
+    position:relative;
+    background-color:#b7d6bb;
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
 }

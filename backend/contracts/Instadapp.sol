@@ -24,10 +24,10 @@ contract InstaDapp {
     }
 
     // Tip 
-    function giveTip(uint256 _id)public payable{
-        require(_id>0 && _id<=count,'Not valid id');
-        payable(images[_id].author).transfer(msg.value);
-        images[_id].tip = images[_id].tip + msg.value;
+    // function giveTip(uint256 _id)public payable{
+    //     require(_id>0 && _id<=count,'Not valid id');
+    //     payable(images[_id].author).transfer(msg.value);
+    //     images[_id].tip = images[_id].tip + msg.value;
   
-    }
+    // }
 }
